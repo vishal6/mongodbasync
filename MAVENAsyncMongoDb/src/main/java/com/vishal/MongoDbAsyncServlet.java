@@ -103,8 +103,10 @@ public class MongoDbAsyncServlet extends HttpServlet {
 
 					System.out.println("jsonString" + jb.toString());
 					db.insertIntoCollection(jb.toString().replace("id", "_id"));
-					out.println(collectionsFromDb.replaceAll("_", ""));
-					out.print("Work completed. Time elapsed: " + (System.nanoTime() - startTime));
+					if(collectionsFromDb!=null){
+						out.println(collectionsFromDb.replaceAll("_", ""));
+					}
+					out.println("Work completed. Time elapsed: " + (System.nanoTime() - startTime));
 					out.flush();
 					asyncContext.complete();
 				} catch (IOException e) {
@@ -115,7 +117,7 @@ public class MongoDbAsyncServlet extends HttpServlet {
 			}
 		}.start();
 
-		resp.getWriter().write("Json Inserted Successfully");
+		out.println("Json Inserted Successfully");
 	}
 
 }
