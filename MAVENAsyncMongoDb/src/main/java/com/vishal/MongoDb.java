@@ -29,15 +29,19 @@ import static com.mongodb.client.model.Filters.eq;
  */
 public class MongoDb {
 	String result;
+	static MongoDatabase database;
+	static MongoClient mongoClient;
+	
+	static{
+		mongoClient = MongoClients.create();
+
+		database = mongoClient.getDatabase("testdb");
+
+	}
 
 	@SuppressWarnings("deprecation")
 	public String getCollectionsFromDb(String param) throws InterruptedException {
 		try {
-
-			MongoClient mongoClient = MongoClients.create();
-
-			MongoDatabase database = mongoClient.getDatabase("testdb");
-
 			final CountDownLatch latch = new CountDownLatch(1);
 
 			MongoCollection<Document> tables = database.getCollection("sample_json");
@@ -111,5 +115,6 @@ public class MongoDb {
 			e.printStackTrace();
 		}
 
+		mongoClient.close();
 	}
 }
