@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class SimpleServlet
  */
 @WebServlet(urlPatterns = "/database/*",asyncSupported = true)
-public class SimpleServlet extends HttpServlet {
+public class MongoDbAsyncServlet extends HttpServlet {
 	static String collectionsFromDb ;
 	
    private static final long serialVersionUID = 1L;
