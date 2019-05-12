@@ -5,12 +5,12 @@
 <web-app >
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-    <servlet-name>SimpleServlet</servlet-name>
-    <servlet-class>com.vishal.SimpleServlet</servlet-class>
+    <servlet-name>MongoDbAsyncServlet</servlet-name>
+    <servlet-class>com.vishal.MongoDbAsyncServlet</servlet-class>
     <async-supported>true</async-supported>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SimpleServlet</servlet-name>
+    <servlet-name>MongoDbAsyncServlet</servlet-name>
     <url-pattern>/database/*</url-pattern>
   </servlet-mapping>
 </web-app>
